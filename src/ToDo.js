@@ -1,15 +1,23 @@
-function ToDo(props) {
+import React, { useState } from "react";
 
-const dater = props.data
-console.log(dater)
-    return (
-<>
-    <p>UserId:{dater.userId}</p>
-    <p>id:{dater.id}</p>
-    <p>title:{dater.title}</p>
-    <p>completed: <input type="checkbox" checked={dater.completed} readOnly/> </p>
-</>
-    );
+function ToDo(props) {
+  const [runcuks, setRuncuks] = useState(true);
+
+  function handleChange(event) {
+    setRuncuks(event.target.checked);
+  }
+
+  return (
+    <>
+      <p>UserId:{props.userId}</p>
+      <p>id:{props.id}</p>
+      <p>title:{props.title}</p>
+      <p>
+        completed:{" "}
+        <input type="checkbox" checked={runcuks} onChange={handleChange} />{" "}
+      </p>
+    </>
+  );
 }
 
 export default ToDo;

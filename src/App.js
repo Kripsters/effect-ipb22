@@ -1,21 +1,21 @@
-import ToDo from "./ToDo.js"
+import ToDo from "./ToDo.js";
 
 function App() {
-const todo = [{
-  userId:1,
-  id:1,
-  title:"delectus aut autem",
-  completed: false,
-}];
+  const todo = {
+    userId: 1,
+    id: 1,
+    title: "delectus aut autem",
+    completed: false,
+  };
 
-//const helloToDo = todo.map((index, current) => {
-//  return <ToDo key={index} />
-//});
+  //const helloToDo = todo.map((index, current) => {
+  //  return <ToDo key={index} />
+  //});
 
   return (
-      <>
-      <ToDo data={todo[0]}/>
-      </>
+    <>
+      <ToDo {...todo} />
+    </>
   );
 }
 
