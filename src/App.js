@@ -1,33 +1,41 @@
+import { useEffect, useState } from "react";
 import ToDo from "./ToDo.js";
-import React, { useEffect, useState } from "react";
+import Comment from "./Comment.js";
 
 function App() {
-  const [todo, setTodo] = useState({});
+  // Uztaisi stāvokļa mainīgo toDo
+  const [toDo, setToDo] = useState({});
+  const [komentars, setKomentars] = useState({});
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    async function getToDoData() {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/todos/69"
+    async function getToDo() {
+      const response1 = await fetch(
+        "https://jsonplaceholder.typicode.com/todos/4"
       );
-      const doto = await response.json();
-      setTodo(doto);
+      const response2 = await fetch(
+        "https://jsonplaceholder.typicode.com/comments/1"
+      );
+      const data1 = await response1.json();
+      const data2 = await response2.json();
+      setToDo(data1);
+      setKomentars(data2);
+      setLoading(false);
     }
-    getToDoData();
-  });
+    getToDo();
+  }, []);
 
-  //  const todo = {
-  //    userId: 1,
-  //    id: 1,
-  //    title: "delectus aut autem",
-  //    completed: false,
-  //  };
-
-  //const helloToDo = todo.map((index, current) => {
-  //  return <ToDo key={index} />
-  //});
+  // const toDo = {
+  //   userId: 1,
+  //   id: 1,
+  //   title: "delectus aut autem",
+  //   completed: false,
+  // };
 
   return (
     <>
-      <ToDo {...todo} />
+      {loading ? <p>Loading...</p> : <ToDo {...toDo} />}
+      {loading ? <p>Loading...</p> : <Comment {...komentars} />}
     </>
   );
 }

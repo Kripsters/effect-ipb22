@@ -1,0 +1,14 @@
+body {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiHSKlmcp2gbMWKZM0PfERl9FNIM7VzkVletegaMNi&s");
+    width: 50vw;
+    height: 85vh;
+    object-fit: fill;
+    background-size: cover;
+    background-position: center;
+  }
+
+
+
+  p {
+    background-color: pink;
+  }

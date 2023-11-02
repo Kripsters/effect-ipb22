@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function ToDo(props) {
-  const [runcuks, setRuncuks] = useState(true);
-
-  function handleChange(event) {
-    setRuncuks(event.target.checked);
-  }
+  // To completed izveido kā stāvokļa mainīgo
+  const [runčuks, setRunčuks] = useState(props.completed);
+  // Izveido abpusējo saistīšanu ar input
+function changeState(){
+  if(runčuks === true) {
+    setRunčuks(false)
+} else {
+    setRunčuks(true);
+} }
 
   return (
     <>
-      <p>UserId:{props.userId}</p>
-      <p>id:{props.id}</p>
-      <p>title:{props.title}</p>
-      <p>
-        completed:{" "}
-        <input type="checkbox" checked={runcuks} onChange={handleChange} />{" "}
-      </p>
+      <p>UserId: {props.userId}</p>
+      <p>Id: {props.id}</p>
+      <p>{props.title}</p>
+      <input type="checkbox" onChange={() => changeState()} checked={runčuks}></input>
     </>
   );
 }
