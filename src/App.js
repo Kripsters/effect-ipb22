@@ -45,7 +45,6 @@ function App() {
       {loading ? <p>Loading...</p> : <ToDo {...toDo} />}
       {loading ? <p>Loading...</p> : <Comment {...komentars} />}
       {loading ? <p>Loading...</p> : <PostList {...postList} />}
-      {loading ? <p>Loading...</p> : <Post />}
     </>
   );
 }
